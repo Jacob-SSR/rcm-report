@@ -1,0 +1,14 @@
+node_modules
+.next
+out
+.git
+.openai
+.env
+.env.*
+!.env.example
+*.zip
+*.tgz
+*.tsbuildinfo
+test
+dist
+src

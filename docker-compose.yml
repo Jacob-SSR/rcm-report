@@ -1,0 +1,23 @@
+services:
+  rcm-reports:
+    build: .
+    image: rcm-report-studio:local
+    container_name: rcm-report-studio
+    ports:
+      - "9000:9000"
+    env_file:
+      - .env
+    environment:
+      HOST: 0.0.0.0
+      PORT: 9000
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    restart: unless-stopped
+    init: true
+    read_only: true
+    tmpfs:
+      - /tmp
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
